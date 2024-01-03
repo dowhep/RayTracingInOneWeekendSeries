@@ -1,12 +1,13 @@
+#include "color.h"
+#include "vec3.h"
+
 #include <iostream>
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #define _CRT_SECURE_NO_WARNINGS 
 #include "stb_image_write.h"
 
 // Image
-const int image_width = 256;
-const int image_height = 256;
-char data[image_height * image_width * 3];
+char data[DATA_SIZE];
 
 int main() {
 
@@ -16,25 +17,15 @@ int main() {
 
     //std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
-    for (int j = 0; j < image_height; ++j) {
-        for (int i = 0; i < image_width; ++i) {
-            int dataInd = j * image_width * 3 + i * 3;
+    for (int j = 0; j < IMAGE_HEIGHT; ++j) {
+        for (int i = 0; i < IMAGE_WIDTH; ++i) {
+            int dataInd = j * IMAGE_WIDTH * 3 + i * 3;
 
-            auto r = double(i) / (image_width - 1);
-            auto g = double(j) / (image_height - 1);
-            auto b = 0;
-
-            int ir = static_cast<int>(255.999 * r);
-            int ig = static_cast<int>(255.999 * g);
-            int ib = static_cast<int>(255.999 * b);
-
-            data[dataInd + 0] = ir;
-            data[dataInd + 1] = ig;
-            data[dataInd + 2] = ib;
-
+            auto pixel_color = color(double(i) / (IMAGE_WIDTH - 1), double(j) / (IMAGE_HEIGHT - 1), 0);
+            write_color_to_array(data, dataInd, pixel_color);
             //std::cout << ir << ' ' << ig << ' ' << ib << '\n';
         }
     }
 
-    stbi_write_png("result.png", image_width, image_height, 3, data, image_width * 3);
+    stbi_write_png("result.png", IMAGE_WIDTH, IMAGE_HEIGHT, 3, data, IMAGE_WIDTH * 3);
 }

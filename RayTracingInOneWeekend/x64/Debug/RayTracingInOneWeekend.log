@@ -1,2 +1,4 @@
 ﻿  main.cpp
+C:\Users\caoga\OneDrive - UC San Diego\Documents\PersonalProjects\2024Winter\RayTracingInOneWeekend\RayTracingInOneWeekend\main.cpp(24,79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\caoga\OneDrive - UC San Diego\Documents\PersonalProjects\2024Winter\RayTracingInOneWeekend\RayTracingInOneWeekend\main.cpp(24,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   RayTracingInOneWeekend.vcxproj -> C:\Users\caoga\OneDrive - UC San Diego\Documents\PersonalProjects\2024Winter\RayTracingInOneWeekend\x64\Debug\RayTracingInOneWeekend.exe
